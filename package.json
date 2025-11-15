@@ -1,0 +1,7 @@
+{
+  "name": "recipes",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

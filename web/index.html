@@ -41,9 +41,28 @@
           <p class="card__summary"></p>
           <ul class="card__highlights"></ul>
           <div class="card__meta"></div>
-          <a class="card__link" target="_blank" rel="noopener"></a>
+          <div class="card__actions">
+            <button class="card__button" type="button">View details</button>
+            <a class="card__link" target="_blank" rel="noopener"></a>
+          </div>
         </article>
       </template>
+
+      <section class="detail" aria-live="polite">
+        <header class="detail__header">
+          <div>
+            <p class="eyebrow">Recipe detail</p>
+            <h2 id="detail-title">Select a recipe to inspect ingredients</h2>
+            <p class="microcopy" id="detail-servings"></p>
+          </div>
+          <label class="field field--inline">
+            <span>Serving multiplier</span>
+            <input id="serving-multiplier" type="number" min="0.25" step="0.25" value="1" />
+          </label>
+        </header>
+        <div id="density-warning" class="banner banner--warning" hidden></div>
+        <ul id="ingredient-list" class="ingredient-list"></ul>
+      </section>
     </main>
 
     <footer class="footer shell">
