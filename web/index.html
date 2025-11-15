@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recipe Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__body">
+        <p class="eyebrow">Recipe Library</p>
+        <h1>Search and discover desserts in this repository</h1>
+        <p class="lede">
+          Type ingredients, equipment, or recipe names to instantly filter the curated dessert collection.
+          Every card links straight to the underlying Markdown file so you can dive into full details.
+        </p>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="search-panel">
+        <label class="field">
+          <span>Search recipes</span>
+          <input
+            id="search"
+            type="search"
+            placeholder="Try “chocolate”, “whipped cream”, or “tart pan”"
+            autocomplete="off"
+            disabled
+          />
+        </label>
+        <p class="microcopy">Results update as you type. Searches look at titles, summaries, tags, and highlight text.</p>
+      </section>
+
+      <section aria-live="polite" aria-busy="true" class="results" id="results"></section>
+      <template id="recipe-card">
+        <article class="card">
+          <p class="card__eyebrow"></p>
+          <h2></h2>
+          <p class="card__summary"></p>
+          <ul class="card__highlights"></ul>
+          <div class="card__meta"></div>
+          <a class="card__link" target="_blank" rel="noopener"></a>
+        </article>
+      </template>
+    </main>
+
+    <footer class="footer shell">
+      <p>Need more recipes? Add Markdown files to <code>categories/desserts/recipes</code> and update <code>web/recipes-index.json</code>.</p>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

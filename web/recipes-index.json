@@ -1,0 +1,41 @@
+[
+  {
+    "id": "classic-chocolate-cake",
+    "title": "Classic Chocolate Cake",
+    "category": "Desserts",
+    "path": "../categories/desserts/recipes/classic-chocolate-cake.md",
+    "summary": "Moist two-layer chocolate cake with rich buttercream frosting and make-ahead tips.",
+    "tags": ["cake", "chocolate", "baking", "party"],
+    "highlights": [
+      "Hot coffee amplifies the cocoa flavor without making the cake taste like coffee.",
+      "Buttercream frosting comes together in under 10 minutes with pantry staples.",
+      "Make-ahead instructions cover freezing layers and refrigerating leftovers."
+    ]
+  },
+  {
+    "id": "lemon-tart",
+    "title": "Lemon Tart with Buttery Crust",
+    "category": "Desserts",
+    "path": "../categories/desserts/recipes/lemon-tart.md",
+    "summary": "Tangy custard baked in a crisp pâte sucrée crust with detailed blind-bake guidance.",
+    "tags": ["tart", "lemon", "citrus", "custard"],
+    "highlights": [
+      "Step-by-step crust instructions include chilling, blind baking, and preventing sogginess.",
+      "Custard is cooked gently on the stovetop before finishing in the oven for a silky texture.",
+      "Storage notes explain how to keep leftovers crisp for up to three days."
+    ]
+  },
+  {
+    "id": "strawberry-shortcakes",
+    "title": "Strawberry Shortcakes",
+    "category": "Desserts",
+    "path": "../categories/desserts/recipes/strawberry-shortcakes.md",
+    "summary": "Flaky sweet biscuits layered with macerated berries and vanilla whipped cream.",
+    "tags": ["shortcake", "strawberry", "summer", "entertaining"],
+    "highlights": [
+      "Detailed biscuit technique covers folding for layers and brushing with cream for shine.",
+      "Macerating fruit with sugar and lemon builds a naturally sweet sauce.",
+      "Flexible variations encourage swapping seasonal fruit or flavoring the dough."
+    ]
+  }
+]
