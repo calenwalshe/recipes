@@ -9,6 +9,16 @@ This directory provides a structured way to organize dessert recipes. Each subdi
 - `techniques/` – Notes on baking or preparation techniques that are reused across recipes.
 - `planning/` – Menus, preparation timelines, or entertaining guides featuring dessert lineups.
 
+## Featured Recipes
+
+The `recipes/` folder currently includes:
+
+- [Classic Chocolate Cake](recipes/classic-chocolate-cake.md)
+- [Lemon Tart with Buttery Crust](recipes/lemon-tart.md)
+- [Strawberry Shortcakes](recipes/strawberry-shortcakes.md)
+
+Use these examples as references when adding new desserts alongside the reusable [`_template.md`](recipes/_template.md).
+
 ## How to Add a New Recipe
 
 1. Copy `recipes/_template.md` to a new file named after the dessert, for example `recipes/chocolate-mousse.md`.
