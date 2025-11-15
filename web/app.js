@@ -1,9 +1,14 @@
+import { applyBreakpointClasses } from "./layout.js";
+
 const resultsEl = document.querySelector("#results");
 const searchInput = document.querySelector("#search");
 const template = document.querySelector("#recipe-card");
 const statusMessage = document.createElement("p");
 statusMessage.className = "microcopy";
 statusMessage.style.marginBottom = "1rem";
+
+applyBreakpointClasses(document, window.innerWidth);
+window.addEventListener("resize", () => applyBreakpointClasses(document, window.innerWidth));
 
 document.querySelector(".search-panel").append(statusMessage);
 
