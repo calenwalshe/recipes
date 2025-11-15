@@ -19,9 +19,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: .
 
       - name: Build project
         run: npm run build
+        working-directory: .
 
       - name: Deploy to Vercel
         run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+        working-directory: .
