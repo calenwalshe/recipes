@@ -10,6 +10,20 @@
       "Hot coffee amplifies the cocoa flavor without making the cake taste like coffee.",
       "Buttercream frosting comes together in under 10 minutes with pantry staples.",
       "Make-ahead instructions cover freezing layers and refrigerating leftovers."
+    ],
+    "servings": 10,
+    "ingredients": [
+      { "name": "All-purpose flour", "quantity": 220, "unit": "g" },
+      { "name": "Granulated sugar", "quantity": 400, "unit": "g" },
+      { "name": "Unsweetened cocoa powder", "quantity": 75, "unit": "g" },
+      { "name": "Baking soda", "quantity": 2, "unit": "tsp", "density": 1.2 },
+      { "name": "Baking powder", "quantity": 1, "unit": "tsp", "density": 1.1 },
+      { "name": "Fine sea salt", "quantity": 1, "unit": "tsp", "density": 1.2 },
+      { "name": "Eggs", "quantity": 2, "unit": "piece", "density": null },
+      { "name": "Buttermilk", "quantity": 240, "unit": "ml", "density": 1.03 },
+      { "name": "Freshly brewed coffee", "quantity": 240, "unit": "ml", "density": 1 },
+      { "name": "Neutral oil", "quantity": 120, "unit": "ml", "density": 0.92 },
+      { "name": "Vanilla extract", "quantity": 2, "unit": "tsp", "density": 1.04 }
     ]
   },
   {
@@ -23,6 +37,16 @@
       "Step-by-step crust instructions include chilling, blind baking, and preventing sogginess.",
       "Custard is cooked gently on the stovetop before finishing in the oven for a silky texture.",
       "Storage notes explain how to keep leftovers crisp for up to three days."
+    ],
+    "servings": 8,
+    "ingredients": [
+      { "name": "All-purpose flour", "quantity": 190, "unit": "g" },
+      { "name": "Powdered sugar", "quantity": 70, "unit": "g" },
+      { "name": "Unsalted butter", "quantity": 170, "unit": "g" },
+      { "name": "Egg yolks", "quantity": 4, "unit": "piece", "density": null },
+      { "name": "Fresh lemon juice", "quantity": 160, "unit": "ml", "density": 1.03 },
+      { "name": "Heavy cream", "quantity": 120, "unit": "ml", "density": 0.99 },
+      { "name": "Lemon zest", "quantity": 2, "unit": "tbsp" }
     ]
   },
   {
@@ -36,6 +60,18 @@
       "Detailed biscuit technique covers folding for layers and brushing with cream for shine.",
       "Macerating fruit with sugar and lemon builds a naturally sweet sauce.",
       "Flexible variations encourage swapping seasonal fruit or flavoring the dough."
+    ],
+    "servings": 6,
+    "ingredients": [
+      { "name": "All-purpose flour", "quantity": 300, "unit": "g" },
+      { "name": "Granulated sugar", "quantity": 75, "unit": "g" },
+      { "name": "Baking powder", "quantity": 1, "unit": "tbsp", "density": 1 },
+      { "name": "Fine sea salt", "quantity": 0.5, "unit": "tsp", "density": 1.2 },
+      { "name": "Cold unsalted butter", "quantity": 170, "unit": "g" },
+      { "name": "Heavy cream", "quantity": 240, "unit": "ml", "density": 0.99 },
+      { "name": "Strawberries", "quantity": 450, "unit": "g" },
+      { "name": "Vanilla extract", "quantity": 1, "unit": "tsp", "density": 1.04 },
+      { "name": "Lemon juice", "quantity": 2, "unit": "tbsp", "density": 1.03 }
     ]
   }
 ]

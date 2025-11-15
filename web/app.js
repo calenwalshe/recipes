@@ -12,6 +12,15 @@ window.addEventListener("resize", () => applyBreakpointClasses(document, window.
 
 document.querySelector(".search-panel").append(statusMessage);
 
+const detailTitle = document.querySelector("#detail-title");
+const detailServings = document.querySelector("#detail-servings");
+const ingredientListEl = document.querySelector("#ingredient-list");
+const densityWarning = document.querySelector("#density-warning");
+const servingMultiplierInput = document.querySelector("#serving-multiplier");
+
+let selectedRecipe = null;
+let servingsMultiplier = 1;
+
 let recipes = [];
 const cardRegistry = new Map();
 
@@ -264,11 +273,80 @@ const render = (list, query = "") => {
 const recipeMatches = (recipe, queryTokens) =>
   queryTokens.every((token) => recipe.searchText.includes(token));
 
+const resetDetail = () => {
+  selectedRecipe = null;
+  detailTitle.textContent = "Select a recipe to inspect ingredients";
+  detailServings.textContent = "";
+  renderIngredientList();
+};
+
+const renderIngredientList = () => {
+  ingredientListEl.innerHTML = "";
+  if (!selectedRecipe) {
+    const placeholder = document.createElement("li");
+    placeholder.className = "ingredient";
+    placeholder.textContent = "Choose a recipe card to see ingredient conversions.";
+    ingredientListEl.appendChild(placeholder);
+    densityWarning.hidden = true;
+    return;
+  }
+
+  const formatted = formatIngredientList(selectedRecipe.ingredients ?? [], servingsMultiplier);
+  const missing = formatted.filter((item) => item.detail.missingDensity).map((item) => item.name);
+  densityWarning.hidden = missing.length === 0;
+  if (missing.length) {
+    densityWarning.textContent = `Missing densities for: ${missing.join(", ")}. Using volume units until densities are provided.`;
+  }
+
+  formatted.forEach(({ name, detail }) => {
+    const li = document.createElement("li");
+    li.className = "ingredient";
+
+    const top = document.createElement("div");
+    top.className = "ingredient__top";
+    const title = document.createElement("span");
+    title.textContent = name;
+    const base = document.createElement("span");
+    base.className = "ingredient__meta";
+    base.textContent = `Base: ${detail.baseDisplay}`;
+    top.append(title, base);
+
+    const normalized = document.createElement("p");
+    normalized.className = "ingredient__conversion";
+    normalized.textContent = `Normalized: ${detail.normalizedDisplay}`;
+
+    const scaled = document.createElement("p");
+    scaled.className = "ingredient__conversion";
+    scaled.textContent = `Scaled (x${servingsMultiplier}): ${detail.scaledDisplay}`;
+
+    li.append(top, normalized, scaled);
+
+    if (detail.missingDensity) {
+      const warning = document.createElement("p");
+      warning.className = "ingredient__warning";
+      warning.textContent = "Density missing; showing volume instead of grams.";
+      li.appendChild(warning);
+    }
+
+    ingredientListEl.appendChild(li);
+  });
+};
+
+const renderDetail = (recipe) => {
+  selectedRecipe = recipe;
+  detailTitle.textContent = recipe.title;
+  detailServings.textContent = recipe.servings ? `Base servings: ${recipe.servings}` : "";
+  renderIngredientList();
+};
+
 const handleSearch = (event) => {
   const query = event.target.value.trim();
   if (!query) {
     render(recipes);
     updateStatus(`Showing ${recipes.length} recipes`);
+    if (recipes.length && !selectedRecipe) {
+      renderDetail(recipes[0]);
+    }
     return;
   }
   const queryTokens = tokensFrom(query);
@@ -279,6 +357,11 @@ const handleSearch = (event) => {
       ? `Showing ${filtered.length} recipe${filtered.length === 1 ? "" : "s"}`
       : `No matches for “${query}”`
   );
+  if (!filtered.length) {
+    resetDetail();
+  } else if (!filtered.some((recipe) => recipe.id === selectedRecipe?.id)) {
+    renderDetail(filtered[0]);
+  }
 };
 
 const loadRecipes = async () => {
@@ -297,6 +380,9 @@ const loadRecipes = async () => {
     }));
     render(recipes);
     updateStatus(`Showing ${recipes.length} recipes`);
+    if (recipes.length) {
+      renderDetail(recipes[0]);
+    }
     searchInput.disabled = false;
     searchInput.focus();
   } catch (error) {
@@ -310,6 +396,19 @@ const loadRecipes = async () => {
   }
 };
 
+servingMultiplierInput.addEventListener("input", (event) => {
+  const value = Number.parseFloat(event.target.value);
+  if (!Number.isFinite(value) || value <= 0) {
+    servingsMultiplier = 1;
+    event.target.value = "1";
+  } else {
+    servingsMultiplier = value;
+  }
+  renderIngredientList();
+});
+
 searchInput.addEventListener("input", handleSearch);
+
+renderIngredientList();
 
 loadRecipes();
